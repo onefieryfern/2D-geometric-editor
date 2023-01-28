@@ -30,3 +30,10 @@
 *.exe
 *.out
 *.app
+
+# Code::Blocks
+*.layout
+
+# CLion
+/.idea/
+/cmake-build-debug/
