@@ -34,6 +34,7 @@
 		</Compiler>
 		<Unit filename="draw_helper.cpp" />
 		<Unit filename="draw_helper.h" />
+		<Unit filename="geometry_data_structures.cpp" />
 		<Unit filename="geometry_data_structures.h" />
 		<Unit filename="main.cpp" />
 		<Extensions />
