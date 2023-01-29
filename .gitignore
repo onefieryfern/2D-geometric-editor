@@ -35,5 +35,4 @@
 *.layout
 
 # CLion
-/.idea/
-/cmake-build-debug/
+/cmake-build-debug-mingw-32bit/
