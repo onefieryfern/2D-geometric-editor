@@ -17,9 +17,18 @@ int main() {
 
     initwindow(WINDOW_WIDTH, WINDOW_HEIGHT, WINDOW_TITLE);
 
+    Point mouseClickPoint;
+    while (true) {
+        do {
+            getmouseclick(WM_LBUTTONDOWN, mouseClickPoint.x, mouseClickPoint.y);
+            delay(50);
+        } while (mouseClickPoint.x == -1 && mouseClickPoint.y == -1);
 
-    drawPoint(SCREEN_CENTRE, POINT_SIZE);
+        drawPoint(mouseClickPoint, POINT_SIZE);
 
+        if (kbhit() != 0 && getch() == '0')
+                break;
+    }
 
     getch();
     closegraph();

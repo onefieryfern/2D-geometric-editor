@@ -2,8 +2,8 @@
 #define INC_2D_GEOMETRIC_EDITOR_GEOMETRY_DATA_STRUCTURES_H
 
 struct Point {
-    short x;
-    short y;
+    int x;
+    int y;
 };
 
 #endif //INC_2D_GEOMETRIC_EDITOR_GEOMETRY_DATA_STRUCTURES_H
