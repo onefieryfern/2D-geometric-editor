@@ -32,7 +32,8 @@
 *.app
 
 # Code::Blocks
-*.layout
+/*.layout
+/*.depend
 
 # CLion
 /cmake-build-debug-mingw-32bit/
