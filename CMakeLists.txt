@@ -5,5 +5,6 @@ set(CMAKE_CXX_STANDARD 11)
 
 add_executable(2D_geometric_editor main.cpp draw_helper.cpp draw_helper.h geometry_data_structures.h)
 
-target_link_libraries(2D_geometric_editor SDL_bgi)
-target_link_libraries(2D_geometric_editor SDL2)
+target_include_directories(2D_geometric_editor PRIVATE "C:/winbgim")
+target_link_directories(2D_geometric_editor PRIVATE "C:/winbgim")
+target_link_libraries(2D_geometric_editor bgi gdi32 comdlg32 uuid oleaut32 ole32)
