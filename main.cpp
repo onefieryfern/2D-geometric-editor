@@ -39,6 +39,8 @@ int main() {
         delay(50);
 
         if (mouseClickPoint.x != -1 && mouseClickPoint.y != -1) {
+            drawPoint(mouseClickPoint, POINT_SIZE);
+
             if (lineSegment[0].x == -1 && lineSegment[0].y == -1) {
                 lineSegment[0] = mouseClickPoint;
             }
