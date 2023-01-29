@@ -3,6 +3,6 @@
 
 #include <graphics.h>
 
-void drawPoint (const Point& point, const short POINT_SIZE) {
-    fillellipse(point.x, point.y, POINT_SIZE, POINT_SIZE);
+void drawPoint (const Point& point, short pointSize) {
+    fillellipse(point.x, point.y, pointSize, pointSize);
 }
