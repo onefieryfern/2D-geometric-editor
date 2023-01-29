@@ -17,6 +17,7 @@ int main() {
 
     initwindow(WINDOW_WIDTH, WINDOW_HEIGHT, WINDOW_TITLE);
 
+    /*
     Point mouseClickPoint;
     while (true) {
         getmouseclick(WM_LBUTTONDOWN, mouseClickPoint.x, mouseClickPoint.y);
@@ -27,6 +28,32 @@ int main() {
 
         if (kbhit() != 0 && getch() == '0')
                 break;
+    }
+     */
+
+    Point mouseClickPoint;
+    Point emptyPoint { -1, -1 };
+    Point lineSegment[2] { emptyPoint, emptyPoint };
+    while (true) {
+        getmouseclick(WM_LBUTTONDOWN, mouseClickPoint.x, mouseClickPoint.y);
+        delay(50);
+
+        if (mouseClickPoint.x != -1 && mouseClickPoint.y != -1) {
+            if (lineSegment[0].x == -1 && lineSegment[0].y == -1) {
+                lineSegment[0] = mouseClickPoint;
+            }
+            else if (lineSegment[1].x == -1 && lineSegment[1].y == -1) {
+                lineSegment[1] = mouseClickPoint;
+
+                drawLine(lineSegment[0], lineSegment[1]);
+
+                lineSegment[0] = emptyPoint;
+                lineSegment[1] = emptyPoint;
+            }
+        }
+
+        if (kbhit() != 0 && getch() == '0')
+            break;
     }
 
     getch();
