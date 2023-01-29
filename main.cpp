@@ -19,12 +19,11 @@ int main() {
 
     Point mouseClickPoint;
     while (true) {
-        do {
-            getmouseclick(WM_LBUTTONDOWN, mouseClickPoint.x, mouseClickPoint.y);
-            delay(50);
-        } while (mouseClickPoint.x == -1 && mouseClickPoint.y == -1);
+        getmouseclick(WM_LBUTTONDOWN, mouseClickPoint.x, mouseClickPoint.y);
+        delay(50);
 
-        drawPoint(mouseClickPoint, POINT_SIZE);
+        if (mouseClickPoint.x != -1 && mouseClickPoint.y != -1)
+            drawPoint(mouseClickPoint, POINT_SIZE);
 
         if (kbhit() != 0 && getch() == '0')
                 break;
