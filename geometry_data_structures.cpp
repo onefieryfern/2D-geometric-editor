@@ -3,11 +3,12 @@
 PointInteractionBox createPointInteractionBox (const Point& point, short pointSize) {
     PointInteractionBox pointInteractionBox;
 
-    pointInteractionBox.topLeft.x = static_cast<short>(point.x - pointSize);
-    pointInteractionBox.topLeft.y = static_cast<short>(point.y - pointSize);
+    pointInteractionBox.topLeft.x = point.x - pointSize;
+    pointInteractionBox.topLeft.y = point.y - pointSize;
 
-    pointInteractionBox.bottomRight.x = static_cast<short>(point.x + pointSize);
-    pointInteractionBox.bottomRight.y = static_cast<short>(point.y + pointSize);
+    // fillelipse()'s centre is odd. TODO document fillelipse() and circle() center oddness
+    pointInteractionBox.bottomRight.x = point.x + pointSize - 1;
+    pointInteractionBox.bottomRight.y = point.y + pointSize - 1;
 
     return pointInteractionBox;
 }
