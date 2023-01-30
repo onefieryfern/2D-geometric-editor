@@ -6,6 +6,10 @@ struct Point {
     int y;
 };
 
+struct Square {
+    Point orderedPoints[4];
+};
+
 struct PointInteractionBox {
     Point topLeft;
     Point bottomRight;
