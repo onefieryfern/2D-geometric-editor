@@ -31,6 +31,7 @@ int main() {
     }
      */
 
+    /*
     Point mouseClickPoint;
     Point emptyPoint { -1, -1 };
     Point lineSegment[2] { emptyPoint, emptyPoint };
@@ -52,6 +53,28 @@ int main() {
                 lineSegment[0] = emptyPoint;
                 lineSegment[1] = emptyPoint;
             }
+        }
+
+        if (kbhit() != 0 && getch() == '0')
+            break;
+    }
+     */
+
+    Point mouseClickPoint;
+    while (true) {
+        getmouseclick(WM_LBUTTONDOWN, mouseClickPoint.x, mouseClickPoint.y);
+        delay(50);
+
+        if (mouseClickPoint.x != -1 && mouseClickPoint.y != -1) {
+            drawPoint(mouseClickPoint, POINT_SIZE);
+
+            short currentColour = static_cast<short>(getcolor());
+            setcolor(RED);
+
+            PointInteractionBox pointInteractionBox = createPointInteractionBox(mouseClickPoint, POINT_SIZE);
+            drawPointInteractionBox(pointInteractionBox);
+
+            setcolor(currentColour);
         }
 
         if (kbhit() != 0 && getch() == '0')
