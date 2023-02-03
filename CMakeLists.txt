@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.24)
 project(2D_geometric_editor)
 
-set(CMAKE_CXX_STANDARD 11)
+set(CMAKE_CXX_STANDARD 14)
 
 add_executable(2D_geometric_editor main.cpp draw_helper.cpp draw_helper.h geometry_data_structures.h geometry_data_structures.cpp)
 

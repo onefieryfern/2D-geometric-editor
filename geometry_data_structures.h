@@ -2,17 +2,17 @@
 #define INC_2D_GEOMETRIC_EDITOR_GEOMETRY_DATA_STRUCTURES_H
 
 struct Point {
-    int x;
-    int y;
+    int x{};
+    int y{};
 };
 
 struct Square {
-    Point orderedPoints[4];
+    Point orderedPoints[4]{};
 };
 
 struct PointInteractionBox {
-    Point topLeft;
-    Point bottomRight;
+    Point topLeft{};
+    Point bottomRight{};
 };
 
 PointInteractionBox createPointInteractionBox (const Point& point, short pointSize);
