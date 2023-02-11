@@ -12,24 +12,7 @@ void drawLine (const Point& endpoint1, const Point& endpoint2) {
 }
 
 void drawSquare (const Square& square) {
-    constexpr short numOfSquarePoints { 4 };
-    /*
-    Point squarePoints[numOfSquarePoints];
-
-    squarePoints[0].x = centre.x - apothem;
-    squarePoints[0].y = centre.y - apothem;
-
-    squarePoints[1].x = centre.x + apothem;
-    squarePoints[1].y = centre.y - apothem;
-
-    squarePoints[2].x = centre.x + apothem;
-    squarePoints[2].y = centre.y + apothem;
-
-    squarePoints[3].x = centre.x - apothem;
-    squarePoints[3].y = centre.y + apothem;
-     */
-
-    for (short i = 0; i < numOfSquarePoints; i++) {
+    for (short i = 0; i < numOfPointsInSquare; i++) {
         if (i == 3)
             drawLine(square.orderedPoints[i], square.orderedPoints[0]);
         else

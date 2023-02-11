@@ -9,10 +9,8 @@ int main() {
     constexpr short WINDOW_HEIGHT = 600;
 
     constexpr char WINDOW_TITLE[] = "2D Geometric Editor";
-
     const Point SCREEN_CENTRE { WINDOW_WIDTH / 2, WINDOW_HEIGHT / 2 };
-
-    const short POINT_SIZE = 4;
+    const short POINT_SIZE = 8;
 
 
     initwindow(WINDOW_WIDTH, WINDOW_HEIGHT, WINDOW_TITLE);
@@ -62,27 +60,27 @@ int main() {
 
     Point mouseClickPoint;
     while (true) {
-        getmouseclick(WM_LBUTTONDOWN, mouseClickPoint.x, mouseClickPoint.y);
-        delay(50);
-
-        if (mouseClickPoint.x != -1 && mouseClickPoint.y != -1) {
+        if (ismouseclick(WM_LBUTTONDOWN)) {
+            getmouseclick(WM_LBUTTONDOWN, mouseClickPoint.x, mouseClickPoint.y);
             drawPoint(mouseClickPoint, POINT_SIZE);
 
-            short currentColour = static_cast<short>(getcolor());
+            colors currentColour { static_cast<colors>(getcolor()) };
             setcolor(RED);
-
+            
             PointInteractionBox pointInteractionBox = createPointInteractionBox(mouseClickPoint, POINT_SIZE);
             drawPointInteractionBox(pointInteractionBox);
-
             setcolor(currentColour);
         }
 
         if (kbhit() != 0 && getch() == '0')
             break;
+
+        delay(50);
     }
 
     getch();
     closegraph();
+
 
     return 0;
 }
