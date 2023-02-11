@@ -18,6 +18,16 @@ void drawPointInteractionBox (const PointInteractionBox& interactionBox) {
     drawSquare(createSquareFromPointInteractionBox(interactionBox));
 }
 
+bool isInPointInteractionBox (const PointInteractionBox& interactionBox, const Point& point) {
+    if (point.x < interactionBox.topLeft.x || point.x > interactionBox.bottomRight.x)
+        return false;
+
+    if (point.y < interactionBox.topLeft.y || point.y > interactionBox.bottomRight.y)
+        return false;
+
+    return true;
+}
+
 Square createSquareFromCentre (const Point& centre, short apothem) {
     Square square{};
 

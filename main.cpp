@@ -58,6 +58,7 @@ int main() {
     }
      */
 
+    /*
     Point mouseClickPoint;
     while (true) {
         if (ismouseclick(WM_LBUTTONDOWN)) {
@@ -70,6 +71,55 @@ int main() {
             PointInteractionBox pointInteractionBox = createPointInteractionBox(mouseClickPoint, POINT_SIZE);
             drawPointInteractionBox(pointInteractionBox);
             setcolor(currentColour);
+        }
+
+        if (kbhit() != 0 && getch() == '0')
+            break;
+
+        delay(50);
+    }
+    */
+
+    bool isInMoving { false };
+    Point point;
+    bool isInFinalMoving { false };
+    while (true) {
+        Point mouseClickPoint;
+
+        if (ismouseclick(WM_LBUTTONDOWN) && !isInMoving) {
+            getmouseclick(WM_LBUTTONDOWN, mouseClickPoint.x, mouseClickPoint.y);
+            drawPoint(mouseClickPoint, POINT_SIZE);
+
+            isInMoving = true;
+
+            point = mouseClickPoint;
+        }
+
+        PointInteractionBox interactionBox { createPointInteractionBox(point, POINT_SIZE) };
+        if (ismouseclick(WM_LBUTTONDOWN) && isInMoving && !isInFinalMoving) {
+            getmouseclick(WM_LBUTTONDOWN, mouseClickPoint.x, mouseClickPoint.y);
+
+            if (isInPointInteractionBox(interactionBox, mouseClickPoint)) {
+                colors currentColour { static_cast<colors>(getcolor()) };
+                setcolor(RED);
+                setfillstyle(SOLID_FILL, RED);
+                cleardevice();
+                drawPoint(point, POINT_SIZE);
+                setcolor(currentColour);
+                setfillstyle(SOLID_FILL, currentColour);
+
+                isInFinalMoving = true;
+            }
+        }
+
+        if (ismouseclick(WM_LBUTTONDOWN) && isInFinalMoving) {
+            getmouseclick(WM_LBUTTONDOWN, mouseClickPoint.x, mouseClickPoint.y);
+
+            cleardevice();
+            drawPoint(mouseClickPoint, POINT_SIZE);
+
+            isInFinalMoving = false;
+            point = mouseClickPoint;
         }
 
         if (kbhit() != 0 && getch() == '0')
