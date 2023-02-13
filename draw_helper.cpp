@@ -17,7 +17,7 @@ void drawLine (const Point& endpoint1, const Point& endpoint2) {
 }
 
 void drawSquare (const Square& square) {
-    for (short i = 0; i < numOfPointsInSquare; i++) {
+    for (short i = 0; i < numOfPointsInRectangle; i++) {
         if (i == 3)
             drawLine(square.orderedPoints[i], square.orderedPoints[0]);
         else

@@ -1,7 +1,7 @@
 #ifndef INC_2D_GEOMETRIC_EDITOR_GEOMETRY_DATA_STRUCTURES_H
 #define INC_2D_GEOMETRIC_EDITOR_GEOMETRY_DATA_STRUCTURES_H
 
-constexpr short numOfPointsInSquare { 4 };
+constexpr short numOfPointsInRectangle { 4 };
 
 struct Point {
     int x{};
@@ -9,7 +9,7 @@ struct Point {
 };
 
 struct Square {
-    Point orderedPoints[numOfPointsInSquare]{};
+    Point orderedPoints[numOfPointsInRectangle]{};
 };
 
 struct PointBoundingBox {
