@@ -101,12 +101,10 @@ int main() {
 
             if (isInPointInteractionBox(interactionBox, mouseClickPoint)) {
                 colors currentColour { static_cast<colors>(getcolor()) };
-                setcolor(RED);
-                setfillstyle(SOLID_FILL, RED);
+                changePointColour(LIGHTBLUE);
                 cleardevice();
                 drawPoint(point, POINT_SIZE);
-                setcolor(currentColour);
-                setfillstyle(SOLID_FILL, currentColour);
+                changePointColour(currentColour);
 
                 isInFinalMoving = true;
             }

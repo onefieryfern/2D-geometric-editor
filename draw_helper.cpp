@@ -7,6 +7,11 @@ void drawPoint (const Point& point, short pointSize) {
     fillellipse(point.x, point.y, pointSize, pointSize);
 }
 
+void changePointColour (colors color) {
+    setcolor(color);
+    setfillstyle(SOLID_FILL, color);
+}
+
 void drawLine (const Point& endpoint1, const Point& endpoint2) {
     line(endpoint1.x, endpoint1.y, endpoint2.x, endpoint2.y);
 }
