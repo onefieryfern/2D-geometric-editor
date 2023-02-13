@@ -12,15 +12,15 @@ struct Square {
     Point orderedPoints[numOfPointsInSquare]{};
 };
 
-struct PointInteractionBox {
+struct PointBoundingBox {
     Point topLeft{};
     Point bottomRight{};
 };
 
-PointInteractionBox createPointInteractionBox (const Point& point, short pointSize);
-void drawPointInteractionBox (const PointInteractionBox& interactionBox);
+PointBoundingBox createPointBoundingBox (const Point& point, short pointSize);
+void drawPointBoundingBox (const PointBoundingBox& boundingBox);
 Square createSquareFromCentre (const Point& centre, short apothem);
-Square createSquareFromPointInteractionBox (const PointInteractionBox& interactionBox);
-bool isInPointInteractionBox (const PointInteractionBox& interactionBox, const Point& point);
+Square createSquareFromPointBoundingBox (const PointBoundingBox& boundingBox);
+bool isInPointBoundingBox (const PointBoundingBox& boundingBox, const Point& point);
 
 #endif //INC_2D_GEOMETRIC_EDITOR_GEOMETRY_DATA_STRUCTURES_H

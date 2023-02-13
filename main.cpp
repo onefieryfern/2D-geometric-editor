@@ -68,8 +68,8 @@ int main() {
             colors currentColour { static_cast<colors>(getcolor()) };
             setcolor(RED);
             
-            PointInteractionBox pointInteractionBox = createPointInteractionBox(mouseClickPoint, POINT_SIZE);
-            drawPointInteractionBox(pointInteractionBox);
+            PointBoundingBox pointInteractionBox = createPointBoundingBox(mouseClickPoint, POINT_SIZE);
+            drawPointBoundingBox(pointInteractionBox);
             setcolor(currentColour);
         }
 
@@ -95,11 +95,11 @@ int main() {
             point = mouseClickPoint;
         }
 
-        PointInteractionBox interactionBox { createPointInteractionBox(point, POINT_SIZE) };
+        PointBoundingBox interactionBox {createPointBoundingBox(point, POINT_SIZE) };
         if (ismouseclick(WM_LBUTTONDOWN) && isInMoving && !isInFinalMoving) {
             getmouseclick(WM_LBUTTONDOWN, mouseClickPoint.x, mouseClickPoint.y);
 
-            if (isInPointInteractionBox(interactionBox, mouseClickPoint)) {
+            if (isInPointBoundingBox(interactionBox, mouseClickPoint)) {
                 colors currentColour { static_cast<colors>(getcolor()) };
                 changePointColour(LIGHTBLUE);
                 cleardevice();
