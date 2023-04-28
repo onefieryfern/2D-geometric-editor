@@ -12,15 +12,16 @@ int main() {
     const Point SCREEN_CENTRE { WINDOW_WIDTH / 2, WINDOW_HEIGHT / 2 };
     const short POINT_SIZE = 8;
 
-
     initwindow(WINDOW_WIDTH, WINDOW_HEIGHT, WINDOW_TITLE);
 
-    bool isInMoving { false };
-    Point point;
-    bool isInFinalMoving { false };
-    while (true) {
-        Point mouseClickPoint;
+    Point point{8, 8};
+    drawPoint(point, POINT_SIZE);
 
+    // bool isInMoving { true };
+    bool pointSelected{false};
+
+    while (true) {
+        /*
         if (ismouseclick(WM_LBUTTONDOWN) && !isInMoving) {
             getmouseclick(WM_LBUTTONDOWN, mouseClickPoint.x, mouseClickPoint.y);
             drawPoint(mouseClickPoint, POINT_SIZE);
@@ -29,30 +30,42 @@ int main() {
 
             point = mouseClickPoint;
         }
+         */
 
-        PointBoundingBox interactionBox {createPointBoundingBox(point, POINT_SIZE) };
-        if (ismouseclick(WM_LBUTTONDOWN) && isInMoving && !isInFinalMoving) {
+        Point mouseClickPoint{};
+        bool mouseClicked{false};
+
+        if (ismouseclick(WM_LBUTTONDOWN)) {
+            mouseClicked = true;
             getmouseclick(WM_LBUTTONDOWN, mouseClickPoint.x, mouseClickPoint.y);
 
-            if (isInPointBoundingBox(interactionBox, mouseClickPoint)) {
-                colors currentColour { static_cast<colors>(getcolor()) };
-                changePointColour(LIGHTBLUE);
-                cleardevice();
-                drawPoint(point, POINT_SIZE);
-                changePointColour(currentColour);
-
-                isInFinalMoving = true;
-            }
+            clearmouseclick(WM_LBUTTONUP);
         }
 
-        if (ismouseclick(WM_LBUTTONDOWN) && isInFinalMoving) {
-            getmouseclick(WM_LBUTTONDOWN, mouseClickPoint.x, mouseClickPoint.y);
+        if (mouseClicked && !pointSelected) {
+            PointBoundingBox boundingBox {createPointBoundingBox(point, POINT_SIZE) };
+            if (isInPointBoundingBox(boundingBox, mouseClickPoint)) {
+                colors initialColour{static_cast<colors>(getcolor())};
+                changePointColour(LIGHTBLUE);
+
+                cleardevice();
+                drawPoint(point, POINT_SIZE);
+
+                changePointColour(initialColour);
+
+                pointSelected = true;
+            }
+            mouseClicked = false;
+        }
+
+        if (mouseClicked && pointSelected) {
+            point = mouseClickPoint;
 
             cleardevice();
-            drawPoint(mouseClickPoint, POINT_SIZE);
+            drawPoint(point, POINT_SIZE);
 
-            isInFinalMoving = false;
-            point = mouseClickPoint;
+            pointSelected = false;
+            mouseClicked = false;
         }
 
         if (kbhit() != 0 && getch() == '0')
@@ -61,9 +74,9 @@ int main() {
         delay(50);
     }
 
+
     getch();
     closegraph();
-
 
     return 0;
 }
