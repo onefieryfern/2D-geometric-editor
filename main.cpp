@@ -17,55 +17,33 @@ int main() {
     Point point {8, 8};
     drawPoint(point, POINT_SIZE);
 
-    // bool isInMoving { true };
-    bool pointSelected{false};
-
+    bool pointSelected {false};
     while (true) {
-        /*
-        if (ismouseclick(WM_LBUTTONDOWN) && !isInMoving) {
-            getmouseclick(WM_LBUTTONDOWN, mouseClickPoint.x, mouseClickPoint.y);
-            drawPoint(mouseClickPoint, POINT_SIZE);
-
-            isInMoving = true;
-
-            point = mouseClickPoint;
-        }
-         */
-
-        Point mouseClickPoint{};
+        Point mouseClick{};
         bool mouseClicked{false};
 
         if (ismouseclick(WM_LBUTTONDOWN)) {
             mouseClicked = true;
-            getmouseclick(WM_LBUTTONDOWN, mouseClickPoint.x, mouseClickPoint.y);
+            getmouseclick(WM_LBUTTONDOWN, mouseClick.x, mouseClick.y);
 
             clearmouseclick(WM_LBUTTONUP);
         }
 
         if (mouseClicked && !pointSelected) {
-            PointBoundingBox boundingBox {createPointBoundingBox(point, POINT_SIZE) };
-            if (isInPointBoundingBox(boundingBox, mouseClickPoint)) {
-                colors initialColour{static_cast<colors>(getcolor())};
-                changePointColour(LIGHTBLUE);
-
+            if (isInPointBoundingBox(createPointBoundingBox(point, POINT_SIZE), mouseClick)) {
                 cleardevice();
-                drawPoint(point, POINT_SIZE);
-
-                changePointColour(initialColour);
+                drawColouredPoint(point, POINT_SIZE, LIGHTBLUE);
 
                 pointSelected = true;
             }
-            mouseClicked = false;
         }
-
-        if (mouseClicked && pointSelected) {
-            point = mouseClickPoint;
+        else if (mouseClicked) {
+            point = mouseClick;
 
             cleardevice();
             drawPoint(point, POINT_SIZE);
 
             pointSelected = false;
-            mouseClicked = false;
         }
 
         if (kbhit() != 0 && getch() == '0')

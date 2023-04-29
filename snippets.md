@@ -62,3 +62,14 @@ while (true) {
     delay(50);
 }
 ```
+
+```C++
+if (ismouseclick(WM_LBUTTONDOWN) && !isInMoving) {
+    getmouseclick(WM_LBUTTONDOWN, mouseClick.x, mouseClick.y);
+    drawPoint(mouseClick, POINT_SIZE);
+
+    isInMoving = true;
+
+    point = mouseClick;
+}
+```

@@ -5,6 +5,7 @@
 #include "geometry_data_structures.h"
 
 void drawPoint (const Point& point, short pointSize);
+void drawColouredPoint (const Point& point, short pointSize, colors colour);
 void changePointColour (colors color);
 void drawLine (const Point& endpoint1, const Point& endpoint2);
 void drawSquare (const Square& square);

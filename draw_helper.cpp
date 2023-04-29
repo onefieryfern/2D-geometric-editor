@@ -7,6 +7,15 @@ void drawPoint (const Point& point, short pointSize) {
     fillellipse(point.x, point.y, pointSize, pointSize);
 }
 
+void drawColouredPoint (const Point& point, short pointSize, colors colour) {
+    colors initialColour {static_cast<colors>(getcolor())};
+    changePointColour(colour);
+
+    drawPoint(point, pointSize);
+
+    changePointColour(initialColour);
+}
+
 void changePointColour (colors color) {
     setcolor(color);
     setfillstyle(SOLID_FILL, color);
