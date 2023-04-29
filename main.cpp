@@ -3,7 +3,8 @@
 
 #include <winbgim.h>
 
-// #include <iostream>
+#include <vector>
+#include <iostream>
 
 int main() {
     constexpr short WINDOW_WIDTH {800};
@@ -15,8 +16,7 @@ int main() {
 
     initwindow(WINDOW_WIDTH, WINDOW_HEIGHT, WINDOW_TITLE);
 
-    Point point {8, 8};
-    drawPoint(point, POINT_SIZE);
+    std::vector<Point> points {{8, 8}};
 
     bool pointSelected {false};
     while (!kbhit()) {
@@ -28,12 +28,16 @@ int main() {
 
             clearmouseclick(WM_LBUTTONUP);
         }
-
-
+        
+        points.insert(points.end(), mouseClick);
 
         delay(50);
     }
+    getch();
 
+    for (auto point : points) {
+        drawPoint(point, POINT_SIZE);
+    }
 
     getch();
     closegraph();
