@@ -1,8 +1,9 @@
-#include <iostream>
-#include <graphics.h>
-
 #include "draw_helper.h"
 #include "geometry_data_structures.h"
+
+#include <winbgim.h>
+
+// #include <iostream>
 
 int main() {
     constexpr short WINDOW_WIDTH {800};
