@@ -1,37 +1,42 @@
 #include "geometry_data_structures.h"
 #include "draw_helper.h"
 
-PointBoundingBox createPointBoundingBox (const Point& point, short pointSize) {
-    PointBoundingBox pointBoundingBox;
+// PointBoundBox
 
-    pointBoundingBox.topLeft.x = point.x - pointSize;
-    pointBoundingBox.topLeft.y = point.y - pointSize;
+PointBoundBox getPointBoundBox (const Point& point, short pointSize) {
+    PointBoundBox boundBox;
 
-    // fillelipse()'s centre is odd. TODO document fillelipse() and circle() center oddness
-    pointBoundingBox.bottomRight.x = point.x + pointSize - 1;
-    pointBoundingBox.bottomRight.y = point.y + pointSize - 1;
+    boundBox.topLeft.x = point.x - pointSize;
+    boundBox.topLeft.y = point.y - pointSize;
 
-    return pointBoundingBox;
+    // fillelipse()'s centre is odd. TODO document fillelipse() and circle()'s center oddness
+    boundBox.bottomRight.x = point.x + pointSize - 1;
+    boundBox.bottomRight.y = point.y + pointSize - 1;
+
+    return boundBox;
 }
 
-void drawPointBoundingBox (const PointBoundingBox& boundingBox) {
-    drawSquare(createSquareFromPointBoundingBox(boundingBox));
+void drawPointBoundBox (const PointBoundBox& pointBoundBox) {
+    drawSquare(getSquareFromPointBoundBox(pointBoundBox));
 }
 
-bool isInPointBoundingBox (const PointBoundingBox& boundingBox, const Point& point) {
-    if (point.x < boundingBox.topLeft.x || point.x > boundingBox.bottomRight.x)
+bool isInPointBoundBox (const PointBoundBox& pointBoundBox, const Point& point) {
+    if (point.x < pointBoundBox.topLeft.x || point.x > pointBoundBox.bottomRight.x)
         return false;
 
-    if (point.y < boundingBox.topLeft.y || point.y > boundingBox.bottomRight.y)
+    if (point.y < pointBoundBox.topLeft.y || point.y > pointBoundBox.bottomRight.y)
         return false;
 
     return true;
 }
 
-Square createSquareFromCentre (const Point& centre, short apothem) {
+
+// Square
+
+Square getSquareFromCentre (const Point& centre, short apothem) {
     Square square{};
 
-    // fillelipse()'s centre is odd. TODO document fillelipse() and circle() center oddness
+    // fillelipse()'s centre is odd. TODO document fillelipse() and circle()'s center oddness
     square.orderedPoints[0].x = centre.x - apothem;
     square.orderedPoints[0].y = centre.y - apothem;
 
@@ -47,18 +52,18 @@ Square createSquareFromCentre (const Point& centre, short apothem) {
     return square;
 }
 
-Square createSquareFromPointBoundingBox (const PointBoundingBox& boundingBox) {
+Square getSquareFromPointBoundBox (const PointBoundBox& pointBoundBox) {
     Square square;
 
-    square.orderedPoints[0] = boundingBox.topLeft;
+    square.orderedPoints[0] = pointBoundBox.topLeft;
 
-    square.orderedPoints[1] = boundingBox.topLeft;
-    square.orderedPoints[1].x = boundingBox.bottomRight.x;
+    square.orderedPoints[1].x = pointBoundBox.bottomRight.x;
+    square.orderedPoints[1].y = pointBoundBox.topLeft.y;
 
-    square.orderedPoints[2] = boundingBox.bottomRight;
-    square.orderedPoints[3] = boundingBox.bottomRight;
+    square.orderedPoints[2] = pointBoundBox.bottomRight;
 
-    square.orderedPoints[3].x = boundingBox.topLeft.x;
+    square.orderedPoints[3].x = pointBoundBox.topLeft.x;
+    square.orderedPoints[3].y = pointBoundBox.bottomRight.y;
 
     return square;
 }

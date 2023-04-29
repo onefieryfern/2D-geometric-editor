@@ -51,8 +51,8 @@ while (true) {
         colors currentColour { static_cast<colors>(getcolor()) };
         setcolor(RED);
         
-        PointBoundingBox pointInteractionBox = createPointBoundingBox(mouseClickPoint, POINT_SIZE);
-        drawPointBoundingBox(pointInteractionBox);
+        PointBoundBox pointInteractionBox = getPointBoundBox(mouseClickPoint, POINT_SIZE);
+        drawPointBoundBox(pointInteractionBox);
         setcolor(currentColour);
     }
 

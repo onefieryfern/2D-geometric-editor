@@ -31,7 +31,7 @@ int main() {
         }
 
         if (mouseClicked && !pointSelected) {
-            if (isInPointBoundingBox(createPointBoundingBox(point, POINT_SIZE), mouseClick)) {
+            if (isInPointBoundBox(getPointBoundBox(point, POINT_SIZE), mouseClick)) {
                 cleardevice();
                 drawColouredPoint(point, POINT_SIZE, LIGHTBLUE);
 
