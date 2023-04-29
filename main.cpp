@@ -19,7 +19,7 @@ int main() {
     drawPoint(point, POINT_SIZE);
 
     bool pointSelected {false};
-    while (true) {
+    while (!kbhit()) {
         Point mouseClick{};
         bool mouseClicked{false};
 
@@ -47,8 +47,6 @@ int main() {
             pointSelected = false;
         }
 
-        if (kbhit() != 0 && getch() == '0')
-            break;
 
         delay(50);
     }
