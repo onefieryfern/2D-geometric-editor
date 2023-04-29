@@ -22,7 +22,6 @@ int main() {
     while (!kbhit()) {
         Point mouseClick{};
         bool mouseClicked{false};
-
         if (ismouseclick(WM_LBUTTONDOWN)) {
             mouseClicked = true;
             getmouseclick(WM_LBUTTONDOWN, mouseClick.x, mouseClick.y);
@@ -30,22 +29,6 @@ int main() {
             clearmouseclick(WM_LBUTTONUP);
         }
 
-        if (mouseClicked && !pointSelected) {
-            if (isInPointBoundBox(getPointBoundBox(point, POINT_SIZE), mouseClick)) {
-                cleardevice();
-                drawColouredPoint(point, POINT_SIZE, LIGHTBLUE);
-
-                pointSelected = true;
-            }
-        }
-        else if (mouseClicked) {
-            point = mouseClick;
-
-            cleardevice();
-            drawPoint(point, POINT_SIZE);
-
-            pointSelected = false;
-        }
 
 
         delay(50);

@@ -73,3 +73,33 @@ if (ismouseclick(WM_LBUTTONDOWN) && !isInMoving) {
     point = mouseClick;
 }
 ```
+
+"Edit mode":
+```C++
+Point mouseClick{};
+bool mouseClicked{false};
+
+if (ismouseclick(WM_LBUTTONDOWN)) {
+    mouseClicked = true;
+    getmouseclick(WM_LBUTTONDOWN, mouseClick.x, mouseClick.y);
+
+    clearmouseclick(WM_LBUTTONUP);
+}
+
+if (mouseClicked && !pointSelected) {
+    if (isInPointBoundBox(getPointBoundBox(point, POINT_SIZE), mouseClick)) {
+        cleardevice();
+        drawColouredPoint(point, POINT_SIZE, LIGHTBLUE);
+
+        pointSelected = true;
+    }
+}
+else if (mouseClicked) {
+    point = mouseClick;
+
+    cleardevice();
+    drawPoint(point, POINT_SIZE);
+
+    pointSelected = false;
+}
+```
