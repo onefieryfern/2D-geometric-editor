@@ -3,7 +3,7 @@
 
 // PointBoundBox
 
-PointBoundBox getPointBoundBox (const Point& point, short pointSize) {
+PointBoundBox getPointBoundBox (const OldPoint& point, short pointSize) {
     PointBoundBox boundBox;
 
     boundBox.topLeft.x = point.x - pointSize;
@@ -20,7 +20,7 @@ void drawPointBoundBox (const PointBoundBox& pointBoundBox) {
     drawSquare(getSquareFromPointBoundBox(pointBoundBox));
 }
 
-bool isInPointBoundBox (const PointBoundBox& pointBoundBox, const Point& point) {
+bool isInPointBoundBox (const PointBoundBox& pointBoundBox, const OldPoint& point) {
     if (point.x < pointBoundBox.topLeft.x || point.x > pointBoundBox.bottomRight.x)
         return false;
 
@@ -33,7 +33,7 @@ bool isInPointBoundBox (const PointBoundBox& pointBoundBox, const Point& point) 
 
 // Square
 
-Square getSquareFromCentre (const Point& centre, short apothem) {
+Square getSquareFromCentre (const OldPoint& centre, short apothem) {
     Square square{};
 
     // fillelipse()'s centre is odd. TODO document fillelipse() and circle()'s center oddness

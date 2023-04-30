@@ -3,11 +3,11 @@
 
 #include <winbgim.h>
 
-void drawPoint (const Point& point, short pointSize) {
+void drawPoint (const OldPoint& point, short pointSize) {
     fillellipse(point.x, point.y, pointSize, pointSize);
 }
 
-void drawColouredPoint (const Point& point, short pointSize, colors colour) {
+void drawColouredPoint (const OldPoint& point, short pointSize, colors colour) {
     colors initialColour {static_cast<colors>(getcolor())};
     changePointColour(colour);
 
@@ -21,7 +21,7 @@ void changePointColour (colors color) {
     setfillstyle(SOLID_FILL, color);
 }
 
-void drawLine (const Point& endpoint1, const Point& endpoint2) {
+void drawLine (const OldPoint& endpoint1, const OldPoint& endpoint2) {
     line(endpoint1.x, endpoint1.y, endpoint2.x, endpoint2.y);
 }
 
