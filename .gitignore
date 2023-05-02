@@ -36,4 +36,4 @@
 /*.depend
 
 # CLion
-/cmake-build-debug-mingw-32bit/
+/cmake-build-debug*/
