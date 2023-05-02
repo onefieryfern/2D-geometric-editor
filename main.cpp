@@ -2,7 +2,7 @@
 #include "geometry_data_structures.h"
 #include "geometry/point.h"
 
-#include <winbgim.h>
+#include <graphics.h>
 
 #include <vector>
 #include <iostream>
@@ -15,32 +15,33 @@ int main() {
     // const OldPoint SCREEN_CENTRE { WINDOW_WIDTH / 2, WINDOW_HEIGHT / 2 };
     const short POINT_SIZE {8};
 
-    initwindow(WINDOW_WIDTH, WINDOW_HEIGHT, WINDOW_TITLE);
+    initwindow(WINDOW_WIDTH, WINDOW_HEIGHT);
 
     std::vector<OldPoint> points {{8, 8}};
 
     bool pointSelected {false};
-    while (!kbhit()) {
+    while (!xkb_hit()) {
         OldPoint mouseClick{};
         bool mouseClicked{false};
         if (ismouseclick(WM_LBUTTONDOWN)) {
             mouseClicked = true;
-            getmouseclick(WM_LBUTTONDOWN, mouseClick.x, mouseClick.y);
+            getmouseclick(WM_LBUTTONDOWN, &mouseClick.x, &mouseClick.y);
 
-            clearmouseclick(WM_LBUTTONUP);
+            // clearmouseclick(WM_LBUTTONUP);
         }
-        
-        points.insert(points.end(), mouseClick);
+
+        if (mouseClicked)
+            points.insert(points.end(), mouseClick);
 
         delay(50);
     }
-    getch();
+    // bgi_getch();
 
     for (auto point : points) {
         drawPoint(point, POINT_SIZE);
     }
 
-    getch();
+    bgi_getch();
     closegraph();
 
     return 0;

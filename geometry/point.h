@@ -1,13 +1,13 @@
-#include <winbgim.h>
+#include <graphics.h>
 
 #ifndef INC_2D_GEOMETRIC_EDITOR_POINT_H
 #define INC_2D_GEOMETRIC_EDITOR_POINT_H
 
 struct PointStyle {
-    colors fillColour{WHITE};
-    colors borderColour{WHITE};
+    int fillColour{WHITE};
+    int borderColour{WHITE};
 
-    fill_styles fillStyle{SOLID_FILL};
+    int fillStyle{SOLID_FILL};
 };
 
 class Point {
@@ -27,7 +27,7 @@ public:
     void draw();
 
     void setPointStyle (PointStyle pointStyle);
-    void setAllColours (colors colour);
+    void setAllColours (int colour);
 };
 
 #endif //INC_2D_GEOMETRIC_EDITOR_POINT_H

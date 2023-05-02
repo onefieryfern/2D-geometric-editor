@@ -1,6 +1,6 @@
 #include "point.h"
 
-#include <winbgim.h>
+#include <graphics.h>
 
 Point::Point(int x, int y) : m_x{x}, m_y{y}
 {
@@ -19,7 +19,7 @@ void Point::draw() {
     fillsettingstype initialFillSettings{};
     getfillsettings(&initialFillSettings);
 
-    colors initialColour {static_cast<colors>(getcolor())};
+    int initialColour {getcolor()};
 
     // Set state to point's style
     setfillstyle(m_pointStyle.fillStyle, m_pointStyle.fillColour);
@@ -37,7 +37,7 @@ void Point::setPointStyle(PointStyle pointStyle) {
     m_pointStyle = pointStyle;
 }
 
-void Point::setAllColours(colors colour) {
+void Point::setAllColours(int colour) {
     m_pointStyle.fillColour = colour;
     m_pointStyle.borderColour = colour;
 }

@@ -1,14 +1,14 @@
 #include "draw_helper.h"
 #include "geometry_data_structures.h"
 
-#include <winbgim.h>
+#include <graphics.h>
 
 void drawPoint (const OldPoint& point, short pointSize) {
     fillellipse(point.x, point.y, pointSize, pointSize);
 }
 
-void drawColouredPoint (const OldPoint& point, short pointSize, colors colour) {
-    colors initialColour {static_cast<colors>(getcolor())};
+void drawColouredPoint (const OldPoint& point, short pointSize, int colour) {
+    int initialColour {getcolor()};
     changePointColour(colour);
 
     drawPoint(point, pointSize);
@@ -16,7 +16,7 @@ void drawColouredPoint (const OldPoint& point, short pointSize, colors colour) {
     changePointColour(initialColour);
 }
 
-void changePointColour (colors color) {
+void changePointColour (int color) {
     setcolor(color);
     setfillstyle(SOLID_FILL, color);
 }
