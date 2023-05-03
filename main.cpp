@@ -5,21 +5,21 @@
 #include <graphics.h>
 
 #include <vector>
-#include <iostream>
+// #include <iostream>
 
 int main() {
     constexpr short WINDOW_WIDTH {800};
     constexpr short WINDOW_HEIGHT {600};
 
-    constexpr char WINDOW_TITLE[] = "2D Geometric Editor";
+    constexpr char WINDOW_TITLE[] {"2D Geometric Editor (pre-Alpha)"};
     // const OldPoint SCREEN_CENTRE { WINDOW_WIDTH / 2, WINDOW_HEIGHT / 2 };
     const short POINT_SIZE {8};
 
     initwindow(WINDOW_WIDTH, WINDOW_HEIGHT);
+    setwintitle(0, const_cast<char *>(WINDOW_TITLE));
 
     std::vector<OldPoint> points {{8, 8}};
 
-    bool pointSelected {false};
     while (!xkb_hit()) {
         OldPoint mouseClick{};
         bool mouseClicked{false};
@@ -27,7 +27,9 @@ int main() {
             mouseClicked = true;
             getmouseclick(WM_LBUTTONDOWN, &mouseClick.x, &mouseClick.y);
 
-            // clearmouseclick(WM_LBUTTONUP);
+            // Clear "left mouse button up" click
+            OldPoint clear{};
+            getmouseclick(WM_LBUTTONUP, &clear.x, &clear.y);
         }
 
         if (mouseClicked)
@@ -35,7 +37,6 @@ int main() {
 
         delay(50);
     }
-    // bgi_getch();
 
     for (auto point : points) {
         drawPoint(point, POINT_SIZE);
