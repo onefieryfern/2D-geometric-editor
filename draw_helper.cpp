@@ -3,25 +3,7 @@
 
 #include <graphics.h>
 
-void drawPoint (const OldPoint& point, short pointSize) {
-    fillellipse(point.x, point.y, pointSize, pointSize);
-}
-
-void drawColouredPoint (const OldPoint& point, short pointSize, int colour) {
-    int initialColour {getcolor()};
-    changePointColour(colour);
-
-    drawPoint(point, pointSize);
-
-    changePointColour(initialColour);
-}
-
-void changePointColour (int color) {
-    setcolor(color);
-    setfillstyle(SOLID_FILL, color);
-}
-
-void drawLine (const OldPoint& endpoint1, const OldPoint& endpoint2) {
+void drawLine (const CoordinatePair& endpoint1, const CoordinatePair& endpoint2) {
     line(endpoint1.x, endpoint1.y, endpoint2.x, endpoint2.y);
 }
 
