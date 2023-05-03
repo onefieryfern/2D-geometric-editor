@@ -3,24 +3,24 @@
 
 constexpr short numOfPointsInRectangle {4};
 
-struct OldPoint {
+struct CoordinatePair {
     int x{};
     int y{};
 };
 
 struct Square {
-    OldPoint orderedPoints[numOfPointsInRectangle]{};
+    CoordinatePair orderedPoints[numOfPointsInRectangle]{};
 };
 
 struct PointBoundBox {
-    OldPoint topLeft{};
-    OldPoint bottomRight{};
+    CoordinatePair topLeft{};
+    CoordinatePair bottomRight{};
 };
 
-PointBoundBox getPointBoundBox (const OldPoint& point, short pointSize);
+PointBoundBox getPointBoundBox (const CoordinatePair& point, short pointSize);
 void drawPointBoundBox (const PointBoundBox& pointBoundBox);
-Square getSquareFromCentre (const OldPoint& centre, short apothem);
+Square getSquareFromCentre (const CoordinatePair& centre, short apothem);
 Square getSquareFromPointBoundBox (const PointBoundBox& pointBoundBox);
-bool isInPointBoundBox (const PointBoundBox& pointBoundBox, const OldPoint& point);
+bool isInPointBoundBox (const PointBoundBox& pointBoundBox, const CoordinatePair& point);
 
 #endif //INC_2D_GEOMETRIC_EDITOR_GEOMETRY_DATA_STRUCTURES_H

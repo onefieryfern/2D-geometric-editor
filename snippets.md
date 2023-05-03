@@ -1,5 +1,5 @@
 ```C++
-OldPoint mouseClickPoint;
+CoordinatePair mouseClickPoint;
 while (true) {
     getmouseclick(WM_LBUTTONDOWN, mouseClickPoint.x, mouseClickPoint.y);
     delay(50);
@@ -13,9 +13,9 @@ while (true) {
 ```
 
 ```C++
-OldPoint mouseClickPoint;
-OldPoint emptyPoint { -1, -1 };
-OldPoint lineSegment[2] { emptyPoint, emptyPoint };
+CoordinatePair mouseClickPoint;
+CoordinatePair emptyPoint { -1, -1 };
+CoordinatePair lineSegment[2] { emptyPoint, emptyPoint };
 while (true) {
     getmouseclick(WM_LBUTTONDOWN, mouseClickPoint.x, mouseClickPoint.y);
     delay(50);
@@ -42,7 +42,7 @@ while (true) {
 ```
 
 ```C++
-OldPoint mouseClickPoint;
+CoordinatePair mouseClickPoint;
 while (true) {
     if (ismouseclick(WM_LBUTTONDOWN)) {
         getmouseclick(WM_LBUTTONDOWN, mouseClickPoint.x, mouseClickPoint.y);
@@ -76,7 +76,7 @@ if (ismouseclick(WM_LBUTTONDOWN) && !isInMoving) {
 
 "Edit mode":
 ```C++
-OldPoint mouseClick{};
+CoordinatePair mouseClick{};
 bool mouseClicked{false};
 
 if (ismouseclick(WM_LBUTTONDOWN)) {
