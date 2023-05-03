@@ -20,6 +20,7 @@ private:
     // colors m_colour{WHITE};
 
 public:
+    Point();
     Point(int x, int y);
     Point(int x, int y, int size);
     Point(int x, int y, int size, PointStyle pointStyle);
