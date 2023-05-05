@@ -1,6 +1,6 @@
 // #include "draw_helper.h"
 #include "geometry_data_structures.h"
-#include "geometry/point.h"
+#include "Point.h"
 
 #include <graphics.h>
 

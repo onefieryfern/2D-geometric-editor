@@ -17,18 +17,22 @@ private:
     int m_size{1};
 
     PointStyle m_pointStyle{};
-    // colors m_colour{WHITE};
 
 public:
-    Point();
+    Point() = default;
     Point(int x, int y);
     Point(int x, int y, int size);
     Point(int x, int y, int size, PointStyle pointStyle);
 
-    void draw();
+    int getX() const;
+    int getY() const;
 
+    void setPosition (int x, int y);
+    void setSize (int size);
     void setPointStyle (PointStyle pointStyle);
     void setAllColours (int colour);
+
+    void draw() const;
 };
 
 #endif //INC_2D_GEOMETRIC_EDITOR_POINT_H
