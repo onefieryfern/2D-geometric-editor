@@ -8,8 +8,6 @@ add_executable(2D_geometric_editor)
 
 target_sources(2D_geometric_editor PRIVATE main.cpp)
 
-target_sources(2D_geometric_editor PRIVATE draw_helper.cpp draw_helper.h)
-
 target_sources(2D_geometric_editor PRIVATE geometry/geometry_constants.h)
 target_sources(2D_geometric_editor PRIVATE geometry/geometry_common.cpp geometry/geometry_common.h)
 target_sources(2D_geometric_editor PRIVATE geometry/Point.cpp geometry/Point.h)

@@ -1,4 +1,3 @@
-// #include "draw_helper.h"
 #include "geometry_common.h"
 #include "Point.h"
 
