@@ -16,11 +16,14 @@ target_sources(2D_geometric_editor PRIVATE geometry/geometry_functions.cpp geome
 target_sources(2D_geometric_editor PRIVATE geometry/Point.cpp geometry/Point.h)
 target_sources(2D_geometric_editor PRIVATE geometry/Rectangle.cpp geometry/Rectangle.h)
 
+target_sources(2D_geometric_editor PRIVATE graphics/graphics_structs.h)
+target_sources(2D_geometric_editor PRIVATE graphics/Colour.cpp graphics/Colour.h)
+
 target_sources(2D_geometric_editor PRIVATE logic/BoundingBox.cpp logic/BoundingBox.h)
 
 # Internal includes
 target_include_directories(2D_geometric_editor PRIVATE ./)
-target_include_directories(2D_geometric_editor PRIVATE geometry/ logic/)
+target_include_directories(2D_geometric_editor PRIVATE geometry/ logic/ graphics/)
 
 # External includes
 
