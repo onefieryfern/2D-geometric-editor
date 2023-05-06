@@ -8,6 +8,8 @@ add_executable(2D_geometric_editor)
 
 target_sources(2D_geometric_editor PRIVATE main.cpp)
 
+target_sources(2D_geometric_editor PRIVATE Engine.cpp Engine.h)
+
 target_sources(2D_geometric_editor PRIVATE geometry/geometry_constants.h)
 target_sources(2D_geometric_editor PRIVATE geometry/geometry_structs.h)
 target_sources(2D_geometric_editor PRIVATE geometry/geometry_functions.cpp geometry/geometry_functions.h)

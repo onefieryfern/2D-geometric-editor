@@ -1,3 +1,4 @@
+#include "Engine.h"
 #include "geometry_structs.h"
 #include "Point.h"
 
@@ -17,8 +18,9 @@ int main() {
     initwindow(WINDOW_WIDTH, WINDOW_HEIGHT);
     setwintitle(0, const_cast<char *>(WINDOW_TITLE));
 
-    std::vector<Point> points {{8, 8, POINT_SIZE}};
+    Engine engine{};
 
+    // Current test program
     while (!xkb_hit()) {
         Position mouseClickPoint{};
         bool mouseClicked{false};
@@ -32,14 +34,11 @@ int main() {
         }
 
         if (mouseClicked)
-            points.insert(points.end(), Point(mouseClickPoint.x, mouseClickPoint.y, POINT_SIZE));
+            engine.addPoint({mouseClickPoint.x, mouseClickPoint.y, POINT_SIZE});
 
         delay(50);
     }
-
-    for (auto point : points) {
-        point.draw();
-    }
+    engine.drawPoints();
 
     bgi_getch();
     closegraph();
