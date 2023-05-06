@@ -8,12 +8,15 @@
 class Engine {
 private:
     std::vector<Point> m_points {};
+
+    void drawPoints() const;
 public:
     Engine() = default;
 
     void addPoint(const Point& point);
 
-    void drawPoints() const;
+    void drawAll() const;
+    void redrawAll() const;
 };
 
 #endif //INC_2D_GEOMETRIC_EDITOR_ENGINE_H
