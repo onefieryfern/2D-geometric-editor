@@ -3,8 +3,6 @@
 #include "geometry_constants.h"
 #include "geometry_functions.h"
 
-#include <graphics.h>
-
 // Constructors
 
 // Initialise a Rectangle from a centre point
@@ -29,18 +27,13 @@ Rectangle::Rectangle(const Point& topLeft, const Point& bottomRight) {
 // Other functions
 
 void Rectangle::draw() const {
-    short next{1};
-    for (short current{0}; current < numOfPointsInRectangle; current++) {
-        line(
-                m_orderedPoints.at(current).getX(),
-                m_orderedPoints.at(current).getY(),
-                m_orderedPoints.at(next).getX(),
-                m_orderedPoints.at(next).getY()
-                );
+    const int firstPoint {0};
+    const int lastPoint {numOfPointsInRectangle - 1};
 
-        if (next >= 3)
-            next = 0;
-        else
-            next++;
+    int next {1};
+    for (int current {firstPoint}; current < numOfPointsInRectangle; current++) {
+        drawLine(m_orderedPoints.at(current), m_orderedPoints.at(next));
+
+        next = ((next != lastPoint) ? next + 1 : firstPoint);
     }
 }
