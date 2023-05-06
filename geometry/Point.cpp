@@ -1,5 +1,7 @@
 #include "Point.h"
 
+#include "BoundingBox.h"
+
 #include <graphics.h>
 
 // Constructors
@@ -10,6 +12,7 @@ Point::Point(int x, int y, int size, PointStyle pointStyle) : Point{x, y, size} 
 // Getters
 int Point::getX() const { return m_x; }
 int Point::getY() const { return m_y; }
+int Point::getSize() const { return m_size; }
 
 // Setters
 void Point::setPosition(int x, int y) {
@@ -43,4 +46,17 @@ void Point::draw() const {
     // Return to state before draw
     setfillstyle(initialFillSettings.pattern, initialFillSettings.color);
     setcolor(initialColour);
+}
+
+Position Point::toPosition() const {
+    return {m_x, m_y};
+}
+
+BoundingBox Point::toBoundingBox() const {
+    const Position topLeft{m_x - m_size, m_y - m_size};
+
+    // fillelipse()'s centre is odd. TODO document fillelipse() and circle()'s center oddness
+    const Position bottomRight{m_x + m_size - 1, m_y + m_size - 1};
+
+    return {topLeft, bottomRight};
 }

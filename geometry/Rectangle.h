@@ -1,6 +1,6 @@
 #include "Point.h"
 
-#include "geometry_data_structures.h"
+#include "geometry_constants.h"
 
 #include <array>
 
@@ -9,10 +9,10 @@
 
 class Rectangle {
 private:
-    std::array<Point, 4> m_orderedPoints{};
+    std::array<Point, numOfPointsInRectangle> m_orderedPoints{};
 public:
     Rectangle() = default;
-    Rectangle(const CoordinatePair& centre, short apothem);
+    Rectangle(const Point& centre, short apothem);
     Rectangle(const Point& topLeft, const Point& bottomRight);
 
     void draw() const;

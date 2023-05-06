@@ -1,6 +1,6 @@
 #include "Rectangle.h"
 
-#include "geometry_data_structures.h"
+#include "geometry_constants.h"
 
 #include <graphics.h>
 
@@ -8,12 +8,12 @@
 
 // Initialise a Rectangle from a centre point
 // This is actually a Square
-Rectangle::Rectangle(const CoordinatePair& centre, short apothem) {
+Rectangle::Rectangle(const Point& centre, short apothem) {
     // fillelipse()'s centre is odd. TODO document fillelipse() and circle()'s center oddness
-    m_orderedPoints.at(0) = {centre.x - apothem, centre.y - apothem};
-    m_orderedPoints.at(1) = {centre.x + apothem - 1, centre.y - apothem};
-    m_orderedPoints.at(2) = {centre.x + apothem - 1, centre.y + apothem - 1};
-    m_orderedPoints.at(3) = {centre.x - apothem, centre.y + apothem - 1};
+    m_orderedPoints.at(0) = {centre.getX() - apothem, centre.getY() - apothem};
+    m_orderedPoints.at(1) = {centre.getX() + apothem - 1, centre.getY() - apothem};
+    m_orderedPoints.at(2) = {centre.getX() + apothem - 1, centre.getY() + apothem - 1};
+    m_orderedPoints.at(3) = {centre.getX() - apothem, centre.getY() + apothem - 1};
 }
 
 // Initialise a Rectangle from the top left point and the bottom right point

@@ -1,7 +1,10 @@
-#include <graphics.h>
-
 #ifndef INC_2D_GEOMETRIC_EDITOR_POINT_H
 #define INC_2D_GEOMETRIC_EDITOR_POINT_H
+
+#include "geometry_common.h"
+#include "BoundingBox.h"
+
+#include <graphics.h>
 
 struct PointStyle {
     int fillColour{WHITE};
@@ -26,6 +29,7 @@ public:
 
     int getX() const;
     int getY() const;
+    int getSize() const;
 
     void setPosition (int x, int y);
     void setSize (int size);
@@ -33,6 +37,9 @@ public:
     void setAllColours (int colour);
 
     void draw() const;
+
+    Position toPosition() const;
+    BoundingBox toBoundingBox() const;
 };
 
 #endif //INC_2D_GEOMETRIC_EDITOR_POINT_H

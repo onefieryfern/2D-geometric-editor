@@ -1,0 +1,9 @@
+#ifndef INC_2D_GEOMETRIC_EDITOR_GEOMETRY_COMMON_H
+#define INC_2D_GEOMETRIC_EDITOR_GEOMETRY_COMMON_H
+
+struct Position {
+    int x{};
+    int y{};
+};
+
+#endif //INC_2D_GEOMETRIC_EDITOR_GEOMETRY_COMMON_H

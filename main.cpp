@@ -1,5 +1,5 @@
 // #include "draw_helper.h"
-#include "geometry_data_structures.h"
+#include "geometry_common.h"
 #include "Point.h"
 
 #include <graphics.h>
@@ -12,7 +12,7 @@ int main() {
     constexpr short WINDOW_HEIGHT {600};
 
     constexpr char WINDOW_TITLE[] {"2D Geometric Editor (pre-Alpha)"};
-    // const CoordinatePair SCREEN_CENTRE { WINDOW_WIDTH / 2, WINDOW_HEIGHT / 2 };
+    // const Position SCREEN_CENTRE { WINDOW_WIDTH / 2, WINDOW_HEIGHT / 2 };
     const short POINT_SIZE {8};
 
     initwindow(WINDOW_WIDTH, WINDOW_HEIGHT);
@@ -21,7 +21,7 @@ int main() {
     std::vector<Point> points {{8, 8, POINT_SIZE}};
 
     while (!xkb_hit()) {
-        CoordinatePair mouseClickPoint{};
+        Position mouseClickPoint{};
         bool mouseClicked{false};
         if (ismouseclick(WM_LBUTTONDOWN)) {
             mouseClicked = true;
