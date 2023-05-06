@@ -1,4 +1,4 @@
-#include "Square.h"
+#include "Rectangle.h"
 
 #include "geometry_data_structures.h"
 
@@ -6,8 +6,9 @@
 
 // Constructors
 
-// Initialise a Square from a centre point
-Square::Square(const CoordinatePair& centre, short apothem) {
+// Initialise a Rectangle from a centre point
+// This is actually a Square
+Rectangle::Rectangle(const CoordinatePair& centre, short apothem) {
     // fillelipse()'s centre is odd. TODO document fillelipse() and circle()'s center oddness
     m_orderedPoints.at(0) = {centre.x - apothem, centre.y - apothem};
     m_orderedPoints.at(1) = {centre.x + apothem - 1, centre.y - apothem};
@@ -15,9 +16,9 @@ Square::Square(const CoordinatePair& centre, short apothem) {
     m_orderedPoints.at(3) = {centre.x - apothem, centre.y + apothem - 1};
 }
 
-// Initialise a Square from the top left point and the bottom right point
-// Can be used, for example, to get a Square object from a bounding box's coordinates
-Square::Square(const Point& topLeft, const Point& bottomRight) {
+// Initialise a Rectangle from the top left point and the bottom right point
+// Can be used, for example, to get a Rectangle object from a bounding box's coordinates
+Rectangle::Rectangle(const Point& topLeft, const Point& bottomRight) {
     m_orderedPoints.at(0) = topLeft;
     m_orderedPoints.at(1) = {bottomRight.getX(), topLeft.getY()};
     m_orderedPoints.at(2) = bottomRight;
@@ -26,7 +27,7 @@ Square::Square(const Point& topLeft, const Point& bottomRight) {
 
 // Other functions
 
-void Square::draw() const {
+void Rectangle::draw() const {
     short next{1};
     for (short current{0}; current < numOfPointsInRectangle; current++) {
         line(

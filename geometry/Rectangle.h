@@ -7,13 +7,13 @@
 #ifndef INC_2D_GEOMETRIC_EDITOR_SQUARE_H
 #define INC_2D_GEOMETRIC_EDITOR_SQUARE_H
 
-class Square {
+class Rectangle {
 private:
     std::array<Point, 4> m_orderedPoints{};
 public:
-    Square() = default;
-    Square(const CoordinatePair& centre, short apothem);
-    Square(const Point& topLeft, const Point& bottomRight);
+    Rectangle() = default;
+    Rectangle(const CoordinatePair& centre, short apothem);
+    Rectangle(const Point& topLeft, const Point& bottomRight);
 
     void draw() const;
 };

@@ -1,6 +1,6 @@
 #include "geometry_data_structures.h"
 #include "draw_helper.h"
-#include "Square.h"
+#include "Rectangle.h"
 
 // PointBoundBox
 
@@ -18,7 +18,7 @@ PointBoundBox getPointBoundBox (const CoordinatePair& point, short pointSize) {
 }
 
 void drawPointBoundBox (const PointBoundBox& pointBoundBox) {
-    Square(
+    Rectangle(
             Point(pointBoundBox.topLeft.x, pointBoundBox.topLeft.y),
             Point(pointBoundBox.bottomRight.x, pointBoundBox.bottomRight.y)
             ).draw();
