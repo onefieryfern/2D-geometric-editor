@@ -9,7 +9,8 @@ add_executable(2D_geometric_editor)
 target_sources(2D_geometric_editor PRIVATE main.cpp)
 
 target_sources(2D_geometric_editor PRIVATE geometry/geometry_constants.h)
-target_sources(2D_geometric_editor PRIVATE geometry/geometry_common.cpp geometry/geometry_common.h)
+target_sources(2D_geometric_editor PRIVATE geometry/geometry_structs.h)
+target_sources(2D_geometric_editor PRIVATE geometry/geometry_functions.cpp geometry/geometry_functions.h)
 target_sources(2D_geometric_editor PRIVATE geometry/Point.cpp geometry/Point.h)
 target_sources(2D_geometric_editor PRIVATE geometry/Rectangle.cpp geometry/Rectangle.h)
 

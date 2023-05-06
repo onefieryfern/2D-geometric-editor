@@ -1,4 +1,4 @@
-#include "geometry_common.h"
+#include "geometry_functions.h"
 
 #include "Point.h"
 

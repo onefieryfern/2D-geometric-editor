@@ -1,7 +1,7 @@
 #ifndef INC_2D_GEOMETRIC_EDITOR_POINT_H
 #define INC_2D_GEOMETRIC_EDITOR_POINT_H
 
-#include "geometry_common.h"
+#include "geometry_structs.h"
 #include "BoundingBox.h"
 
 #include <graphics.h>

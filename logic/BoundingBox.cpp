@@ -1,6 +1,6 @@
 #include "BoundingBox.h"
 
-#include "geometry_common.h"
+#include "geometry_structs.h"
 #include "Rectangle.h"
 
 BoundingBox::BoundingBox(const Position& topLeft, const Position& bottomRight)

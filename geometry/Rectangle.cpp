@@ -1,6 +1,7 @@
 #include "Rectangle.h"
 
 #include "geometry_constants.h"
+#include "geometry_functions.h"
 
 #include <graphics.h>
 
