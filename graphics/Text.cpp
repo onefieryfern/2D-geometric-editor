@@ -36,7 +36,7 @@ namespace Text {
 
         // Do the testing
         int foundMaxCharsize {-1};
-        for (int charsize = 1; charsize <= maxCharsize; charsize++) {
+        for (int charsize = minCharsize; charsize <= maxCharsize; charsize++) {
             // Set state to text's style
             settextstyle(textSettings.font, textSettings.direction, charsize);
 
