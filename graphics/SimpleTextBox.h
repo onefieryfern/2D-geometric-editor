@@ -5,10 +5,10 @@
 
 class SimpleTextBox {
 private:
-    Position m_topLeft{};
+    Position m_topLeft {};
 
 public:
-    SimpleTextBox() = default;
+    SimpleTextBox () = default;
 };
 
 #endif //INC_2D_GEOMETRIC_EDITOR_GRAPHICS_SIMPLETEXTBOX_H

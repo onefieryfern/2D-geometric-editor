@@ -7,27 +7,27 @@
 #include <vector>
 #include <iostream>
 
-int main() {
-    constexpr short WINDOW_WIDTH {800};
-    constexpr short WINDOW_HEIGHT {600};
+int main () {
+    constexpr short WINDOW_WIDTH { 800 };
+    constexpr short WINDOW_HEIGHT { 600 };
 
-    constexpr char WINDOW_TITLE[] {"2D Geometric Editor (pre-Alpha)"};
+    constexpr char WINDOW_TITLE[] { "2D Geometric Editor (pre-Alpha)" };
     // const Position SCREEN_CENTRE { WINDOW_WIDTH / 2, WINDOW_HEIGHT / 2 };
-    const short POINT_SIZE {8};
+    const short POINT_SIZE { 8 };
 
     initwindow(WINDOW_WIDTH, WINDOW_HEIGHT);
-    setwintitle(0, const_cast<char *>(WINDOW_TITLE));
+    setwintitle(0, const_cast<char*>(WINDOW_TITLE));
 
-    Engine engine{};
+    Engine engine {};
 
-    const Colour shadeOfBlue {51, 102, 255};
+    const Colour shadeOfBlue { 51, 102, 255 };
     setfillstyle(SOLID_FILL, shadeOfBlue.toInt());
     bar(0, 0, 800, 20);
 
-    char testText[] {"Test Button Text"};
+    char testText[] { "Test Button Text" };
 
     try {
-        textsettingstype testSettings{Text::getSaneDefaults()};
+        textsettingstype testSettings { Text::getSaneDefaults() };
         testSettings.font = SANS_SERIF_FONT;
         testSettings.charsize = Text::getMaxCharsize(testText, testSettings, 20, 800);
         Text::setActiveSettings(testSettings);

@@ -1,6 +1,6 @@
 #ifndef INC_2D_GEOMETRIC_EDITOR_GEOMETRY_CONSTANTS_H
 #define INC_2D_GEOMETRIC_EDITOR_GEOMETRY_CONSTANTS_H
 
-constexpr short numOfPointsInRectangle {4};
+constexpr short g_numOfPointsInRectangle { 4 };
 
 #endif //INC_2D_GEOMETRIC_EDITOR_GEOMETRY_CONSTANTS_H

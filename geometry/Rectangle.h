@@ -4,19 +4,19 @@
 
 #include <array>
 
-#ifndef INC_2D_GEOMETRIC_EDITOR_SQUARE_H
-#define INC_2D_GEOMETRIC_EDITOR_SQUARE_H
+#ifndef INC_2D_GEOMETRIC_EDITOR_GEOMETRY_RECTANGLE_H
+#define INC_2D_GEOMETRIC_EDITOR_GEOMETRY_RECTANGLE_H
 
 class Rectangle {
 private:
-    std::array<Point, numOfPointsInRectangle> m_orderedPoints{};
+    std::array<Point, g_numOfPointsInRectangle> m_orderedPoints {};
 public:
-    Rectangle() = default;
-    Rectangle(const Point& centre, short apothem);
-    Rectangle(const Point& topLeft, const Point& bottomRight);
+    Rectangle () = default;
+    Rectangle (const Point& centre, short apothem);
+    Rectangle (const Point& topLeft, const Point& bottomRight);
 
-    void draw() const;
+    void draw () const;
 };
 
 
-#endif //INC_2D_GEOMETRIC_EDITOR_SQUARE_H
+#endif //INC_2D_GEOMETRIC_EDITOR_GEOMETRY_RECTANGLE_H

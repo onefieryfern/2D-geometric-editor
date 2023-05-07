@@ -7,15 +7,15 @@
 
 namespace Text {
     // Maximum charsize supported by SDL_bgi
-    constexpr int maxCharsize {10};
+    constexpr int maxCharsize { 10 };
 
     // Minimum charsize supported by SDL_bgi
-    constexpr int minCharsize {1};
+    constexpr int minCharsize { 1 };
 
-    textsettingstype getSaneDefaults();
+    textsettingstype getSaneDefaults ();
+    textsettingstype getActiveSettings ();
 
-    textsettingstype getActiveSettings();
-    void setActiveSettings(const textsettingstype& textSettings);
+    void setActiveSettings (const textsettingstype& textSettings);
 
     int getMaxCharsize (std::string text, const textsettingstype& textSettings, int height, int width);
 };
