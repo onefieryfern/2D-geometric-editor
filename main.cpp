@@ -1,11 +1,11 @@
 #include "Engine.h"
-#include "geometry_structs.h"
-#include "Point.h"
+#include "Colour.h"
+#include "Text.h"
 
 #include <graphics.h>
 
 #include <vector>
-// #include <iostream>
+#include <iostream>
 
 int main() {
     constexpr short WINDOW_WIDTH {800};
@@ -20,7 +20,26 @@ int main() {
 
     Engine engine{};
 
+    const Colour shadeOfBlue {51, 102, 255};
+    setfillstyle(SOLID_FILL, shadeOfBlue.toInt());
+    bar(0, 0, 800, 20);
+
+    char testText[] {"Test Button Text"};
+
+    try {
+        textsettingstype testSettings{Text::getSaneDefaults()};
+        testSettings.font = SANS_SERIF_FONT;
+        testSettings.charsize = Text::getMaxCharsize(testText, testSettings, 20, 800);
+        Text::setActiveSettings(testSettings);
+
+        outtextxy(0, 0, testText);
+    }
+    catch (std::string_view& error_text) {
+        std::cerr << "Caught an error: " << error_text << '\n';
+    }
+
     // Current test program
+    /*
     while (!xkb_hit()) {
         Position mouseClickPoint{};
         bool mouseClicked{false};
@@ -38,7 +57,8 @@ int main() {
 
         delay(50);
     }
-    engine.drawPoints();
+    engine.drawAll();
+     */
 
     bgi_getch();
     closegraph();
