@@ -6,8 +6,8 @@
 
 // Constructors
 Point::Point (int x, int y) { setPosition(x, y); }
-Point::Point (int x, int y, int size) : Point{x, y} { setSize(size); }
-Point::Point (int x, int y, int size, PointStyle pointStyle) : Point{x, y, size} { setPointStyle(pointStyle); }
+Point::Point (int x, int y, int size) : Point { x, y } { setSize(size); }
+Point::Point (int x, int y, int size, PointStyle pointStyle) : Point { x, y, size } { setPointStyle(pointStyle); }
 
 // Getters
 int Point::getX () const { return m_x; }
@@ -31,7 +31,7 @@ void Point::setAllColours (int colour) {
 // Other functions
 void Point::draw () const {
     // Save state before draw
-    fillsettingstype initialFillSettings{};
+    fillsettingstype initialFillSettings {};
     getfillsettings(&initialFillSettings);
 
     int initialColour { getcolor() };
