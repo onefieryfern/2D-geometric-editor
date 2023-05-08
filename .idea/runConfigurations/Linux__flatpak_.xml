@@ -1,5 +1,5 @@
 <component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="2D_geometric_editor" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="2D_geometric_editor" TARGET_NAME="2D_geometric_editor" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="2D_geometric_editor" RUN_TARGET_NAME="2D_geometric_editor">
+  <configuration default="false" name="Linux (flatpak)" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="2D_geometric_editor" TARGET_NAME="2D_geometric_editor" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="2D_geometric_editor" RUN_TARGET_NAME="2D_geometric_editor">
     <envs>
       <env name="LIBGL_DRIVERS_PATH" value="/run/host/usr/lib/x86_64-linux-gnu/dri/" />
       <env name="LD_LIBRARY_PATH" value="/run/host/usr/lib/x86_64-linux-gnu/:/run/host/usr/lib/x86_64-linux-gnu/pulseaudio/" />
