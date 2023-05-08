@@ -27,14 +27,22 @@ target_sources(2D_geometric_editor PRIVATE logic/BoundingBox.cpp logic/BoundingB
 target_include_directories(2D_geometric_editor PRIVATE ./)
 target_include_directories(2D_geometric_editor PRIVATE geometry/ logic/ graphics/)
 
+# TODO: Automatically include correct libraries & headers based on the OS it's being built on
 # External includes
 
-## for Flatpak
+## for Linux (flatpak)
 target_include_directories(2D_geometric_editor PRIVATE "/run/host/usr/include/" "/run/host/usr/include/x86_64-linux-gnu/")
 target_link_directories(2D_geometric_editor PRIVATE "/run/host/usr/lib/" "/run/host/usr/lib/x86_64-linux-gnu/" "/run/host/usr/lib/x86_64-linux-gnu/pulseaudio")
 
+## for macOS
+#target_include_directories(2D_geometric_editor PRIVATE "/usr/local/include/")
+#target_link_directories(2D_geometric_editor PRIVATE "/usr/local/lib/")
+
+# Link libraries
 target_link_libraries(2D_geometric_editor PRIVATE SDL_bgi SDL2)
 
+# for Windows (using winbgim, will NOT work anymore)
+# TODO: Create new Windows-specific config for using SDL_bgi & SDL2
 #target_include_directories(2D_geometric_editor PRIVATE "C:/winbgim")
 #target_link_directories(2D_geometric_editor PRIVATE "C:/winbgim")
 #target_link_libraries(2D_geometric_editor bgi gdi32 comdlg32 uuid oleaut32 ole32)
